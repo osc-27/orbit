@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+/* ── Orbit design tokens ───────────────────────────────────────────────────
+   Brand DNA inherited from OppLoans: teal primary, green "positive" accent,
+   airy layout, generous rounding, friendly-but-serious sans. */
+@theme {
+  --color-brand: #0aa2aa;
+  --color-brand-dark: #067a80;
+  --color-brand-darker: #0c2a30;
+  --color-brand-tint: #e6f4f4;
+  --color-brand-tint-2: #d3ebec;
+
+  --color-accent: #2fb574;
+  --color-accent-dark: #1f8f59;
+
+  --color-ink: #10242b;
+  --color-muted: #566a72;
+  --color-paper: #ffffff;
+  --color-cloud: #f1f7f7;
+  --color-line: #e1ecec;
+  --color-line-strong: #cfe0e0;
+
+  --color-good: #2fb574;
+  --color-warn: #e08a2b;
+  --color-crit: #d0533f;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --shadow-card: 0 1px 2px rgba(16, 36, 43, 0.04), 0 10px 30px rgba(16, 36, 43, 0.06);
+  --shadow-lift: 0 2px 6px rgba(16, 36, 43, 0.08), 0 18px 44px rgba(16, 36, 43, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--color-cloud);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+  .wrap-narrow {
+    @apply mx-auto w-full max-w-3xl px-5 sm:px-8;
+  }
+
+  /* Shared button base — grouped selector applies only real utilities
+     (Tailwind v4 @apply cannot reference another custom class). */
+  .btn,
+  .btn-primary,
+  .btn-ghost,
+  .btn-accent {
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full px-6 py-3 text-sm
+           font-semibold transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2
+           focus-visible:outline-brand disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-brand text-white shadow-[0_6px_18px_rgba(10,162,170,0.35)] hover:-translate-y-0.5 hover:bg-brand-dark;
+  }
+  .btn-ghost {
+    @apply border border-line-strong bg-paper text-ink hover:border-brand hover:text-brand;
+  }
+  .btn-accent {
+    @apply bg-accent text-white hover:-translate-y-0.5 hover:bg-accent-dark;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-paper shadow-[var(--shadow-card)];
+  }
+
+  .chip,
+  .chip-neutral,
+  .chip-brand {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-semibold;
+  }
+  .chip-neutral {
+    @apply bg-cloud text-muted;
+  }
+  .chip-brand {
+    @apply bg-brand-tint text-brand-dark;
+  }
+
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.16em] text-brand;
+  }
+
+  .input {
+    @apply w-full rounded-xl border border-line bg-paper px-3.5 py-2.5 text-sm text-ink outline-none
+           transition-colors placeholder:text-muted focus:border-brand focus:ring-2 focus:ring-brand-tint-2;
+  }
+
+  /* approval-odds pills */
+  .odds-excellent,
+  .odds-good,
+  .odds-fair {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-bold;
+  }
+  .odds-excellent {
+    @apply bg-[#e4f6ee] text-[#1f8f59];
+  }
+  .odds-good {
+    @apply bg-[#e6f4f4] text-brand-dark;
+  }
+  .odds-fair {
+    @apply bg-[#fbefe1] text-[#b56a1e];
+  }
+}
