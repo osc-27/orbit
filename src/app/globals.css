@@ -4,30 +4,33 @@
    Brand DNA inherited from OppLoans: teal primary, green "positive" accent,
    airy layout, generous rounding, friendly-but-serious sans. */
 @theme {
-  --color-brand: #0aa2aa;
-  --color-brand-dark: #067a80;
-  --color-brand-darker: #0c2a30;
-  --color-brand-tint: #e6f4f4;
-  --color-brand-tint-2: #d3ebec;
+  /* OppLoans brand (measured from opploans.com): electric blue primary,
+     navy for headings/dark surfaces, amber for high-emphasis CTAs. */
+  --color-brand: #005aff;
+  --color-brand-dark: #0528a0;
+  --color-brand-darker: #041b54;
+  --color-brand-tint: #eaf1ff;
+  --color-brand-tint-2: #d4e2ff;
 
-  --color-accent: #2fb574;
-  --color-accent-dark: #1f8f59;
+  --color-accent: #ffa000;
+  --color-accent-dark: #e08e00;
 
-  --color-ink: #10242b;
-  --color-muted: #566a72;
+  --color-ink: #1b2333;
+  --color-muted: #5b6472;
   --color-paper: #ffffff;
-  --color-cloud: #f1f7f7;
-  --color-line: #e1ecec;
-  --color-line-strong: #cfe0e0;
+  --color-cloud: #f3f5fb;
+  --color-line: #e2e6ef;
+  --color-line-strong: #cbd3e1;
 
-  --color-good: #2fb574;
-  --color-warn: #e08a2b;
-  --color-crit: #d0533f;
+  --color-good: #1f9d57;
+  --color-warn: #b5711a;
+  --color-crit: #c8322b;
 
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* Arimo-led to echo OppLoans' Arial-metric brand face. */
+  --font-sans: "Helvetica Neue", Arimo, Arial, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
-  --shadow-card: 0 1px 2px rgba(16, 36, 43, 0.04), 0 10px 30px rgba(16, 36, 43, 0.06);
-  --shadow-lift: 0 2px 6px rgba(16, 36, 43, 0.08), 0 18px 44px rgba(16, 36, 43, 0.12);
+  --shadow-card: 0 1px 2px rgba(11, 20, 45, 0.05), 0 10px 30px rgba(11, 20, 45, 0.06);
+  --shadow-lift: 0 2px 6px rgba(11, 20, 45, 0.08), 0 18px 44px rgba(11, 20, 45, 0.12);
 }
 
 html {
@@ -55,22 +58,23 @@ body {
   .btn-primary,
   .btn-ghost,
   .btn-accent {
-    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-full px-6 py-3 text-sm
-           font-semibold transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm
+           font-bold transition-all duration-150 focus-visible:outline-2 focus-visible:outline-offset-2
            focus-visible:outline-brand disabled:cursor-not-allowed disabled:opacity-50;
   }
   .btn-primary {
-    @apply bg-brand text-white shadow-[0_6px_18px_rgba(10,162,170,0.35)] hover:-translate-y-0.5 hover:bg-brand-dark;
+    @apply bg-brand text-white shadow-[0_6px_18px_rgba(0,90,255,0.28)] hover:-translate-y-0.5 hover:bg-brand-dark;
   }
   .btn-ghost {
     @apply border border-line-strong bg-paper text-ink hover:border-brand hover:text-brand;
   }
+  /* amber accent uses dark text for contrast, per OppLoans */
   .btn-accent {
-    @apply bg-accent text-white hover:-translate-y-0.5 hover:bg-accent-dark;
+    @apply bg-accent text-ink hover:-translate-y-0.5 hover:bg-accent-dark;
   }
 
   .card {
-    @apply rounded-2xl border border-line bg-paper shadow-[var(--shadow-card)];
+    @apply rounded-xl border border-line bg-paper shadow-[var(--shadow-card)];
   }
 
   .chip,
@@ -104,7 +108,7 @@ body {
     @apply bg-[#e4f6ee] text-[#1f8f59];
   }
   .odds-good {
-    @apply bg-[#e6f4f4] text-brand-dark;
+    @apply bg-[#eaf1ff] text-brand-dark;
   }
   .odds-fair {
     @apply bg-[#fbefe1] text-[#b56a1e];

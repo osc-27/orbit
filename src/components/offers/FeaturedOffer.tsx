@@ -8,7 +8,7 @@ import { aprRange, currency } from "@/lib/format";
 // never blended into the market table under a "best rate" claim.
 export function FeaturedOffer({ offer }: { offer: NormalizedOffer }) {
   return (
-    <article className="relative overflow-hidden rounded-2xl border-2 border-brand/40 bg-gradient-to-br from-brand-tint to-paper shadow-[var(--shadow-card)]">
+    <article className="relative overflow-hidden rounded-xl border-2 border-brand/40 bg-gradient-to-br from-brand-tint to-paper shadow-[var(--shadow-card)]">
       <div className="flex items-center justify-between bg-brand px-5 py-2 text-white">
         <span className="text-xs font-bold uppercase tracking-[0.14em]">From OppFi · Featured</span>
         <ApprovalOdds odds={offer.approvalOdds} compact />
