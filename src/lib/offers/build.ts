@@ -74,7 +74,12 @@ export function buildOffer(lender: MockLender, lead: Lead): NormalizedOffer | nu
     amountRange: { min: lender.amount[0], max: lender.amount[1] },
     estMonthlyPayment: est,
     approvalOdds: odds,
-    applyUrl: lender.applyUrl,
+    // First-party offers route through the Orbit → OppFi handoff endpoint (which
+    // mints a signed prefill token and tracks the click). External offers link out
+    // directly to the lender/aggregator.
+    applyUrl: lender.isFirstParty
+      ? `/handoff/oppfi?offer=${encodeURIComponent(lender.id)}&amt=${amount}`
+      : lender.applyUrl,
     disclosures: buildDisclosures(lender, apr, amount),
     highlights: lender.highlights,
     fundingSpeed: lender.fundingSpeed,

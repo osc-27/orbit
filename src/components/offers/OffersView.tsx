@@ -1,6 +1,7 @@
 import type { OfferResult } from "@/lib/offers/types";
 import { FeaturedOffer } from "./FeaturedOffer";
 import { OfferRow } from "./OfferRow";
+import { RankingInfo } from "./RankingInfo";
 import { ShieldCheck, Info } from "lucide-react";
 
 // Presentational results surface, shared by the live /offers page and the
@@ -49,7 +50,7 @@ export function OffersView({
           <h2 id="market-heading" className="text-lg font-bold text-ink">
             {market.length} more {market.length === 1 ? "offer" : "offers"} from the market
           </h2>
-          <span className="chip-neutral">{meta.sortBasis}</span>
+          <RankingInfo sortBasis={meta.sortBasis} />
         </div>
         {market.length > 0 ? (
           <div className="flex flex-col gap-3">
