@@ -23,6 +23,7 @@ export async function POST(request: Request) {
     creditBand,
     amount,
     goal: typeof b.goal === "string" ? b.goal : undefined,
+    purpose: typeof b.purpose === "string" ? b.purpose : undefined,
     zip: typeof b.zip === "string" ? b.zip : undefined,
     firstName: typeof b.firstName === "string" ? b.firstName : undefined,
     lastName: typeof b.lastName === "string" ? b.lastName : undefined,

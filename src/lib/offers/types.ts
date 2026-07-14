@@ -17,6 +17,8 @@ export type SourceId = "oppfi" | "engine" | `partner:${string}`;
 export interface Lead {
   vertical: Vertical;
   goal?: string;
+  /** Engine `loan_purpose` (e.g. "debt_consolidation"). Maps from the goal. */
+  purpose?: string;
   amount: number;
   creditBand: CreditBand;
   zip?: string;

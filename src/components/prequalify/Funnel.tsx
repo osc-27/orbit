@@ -85,7 +85,8 @@ export function Funnel({ defaultGoalId, defaultVertical }: { defaultGoalId?: str
   function onSubmit(data: FormValues) {
     setSubmitting(true);
     try {
-      sessionStorage.setItem("orbit.lead", JSON.stringify(data));
+      // purpose mirrors the chosen goal (maps to Engine's loan_purpose)
+      sessionStorage.setItem("orbit.lead", JSON.stringify({ ...data, purpose: data.goal }));
     } catch {
       /* sessionStorage may be unavailable; offers page falls back gracefully */
     }

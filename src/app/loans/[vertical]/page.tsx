@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
 import { verticalBySlug, VERTICALS } from "@/lib/content/verticals";
 import { getOffers } from "@/lib/offers/orchestrator";
-import { OffersView } from "@/components/offers/OffersView";
+import { InlineOffers } from "@/components/offers/InlineOffers";
 import { VerticalIcon } from "@/components/ui/VerticalIcon";
 import type { Vertical } from "@/lib/offers/types";
 
@@ -100,10 +100,10 @@ export default async function VerticalPage({ params }: { params: Promise<{ verti
         <div className="mb-6">
           <h2 className="text-2xl font-extrabold tracking-tight text-ink">A look at today&apos;s offers</h2>
           <p className="mt-1 text-sm text-muted">
-            Sample results for a {`$${amount.toLocaleString()}`} request. Prequalify to see your personalized rates.
+            Adjust the amount and credit rating to update offers instantly. Prequalify to see your personalized rates.
           </p>
         </div>
-        <OffersView result={sample} />
+        <InlineOffers vertical={meta.slug as Vertical} initialResult={sample} initialAmount={amount} />
       </div>
     </div>
   );
