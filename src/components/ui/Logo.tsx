@@ -1,37 +1,28 @@
-// Orbit wordmark lockup — the "Orbit" bold wordmark with an orbital swoosh.
-// Monochrome + themeable via currentColor (brand blue on light, white on dark).
-// Drop the official SVG/PNG into /public and swap this if you prefer the exact asset.
+// Orbit wordmark — rounded-geometric "Orbit" (Fredoka) with the orbital swoosh
+// (an over-the-top arc + a lower-left comet tail wrapping the "O"). Monochrome +
+// themeable via currentColor. For a pixel-exact brand asset, drop the official
+// SVG/PNG into /public and render it here instead.
 export function Logo({ className = "", height = 26 }: { className?: string; height?: number }) {
   return (
     <svg
-      viewBox="0 0 132 44"
+      viewBox="0 0 152 46"
       height={height}
       className={className}
       role="img"
       aria-label="Orbit"
       fill="none"
     >
-      {/* orbital swoosh — a comet arc sweeping over the wordmark */}
-      <defs>
-        <linearGradient id="orbit-swoosh" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0" stopColor="currentColor" stopOpacity="0" />
-          <stop offset="0.35" stopColor="currentColor" stopOpacity="0.55" />
-          <stop offset="1" stopColor="currentColor" stopOpacity="1" />
-        </linearGradient>
-      </defs>
-      <path
-        d="M5 27 C 10 39, 96 41, 128 9"
-        stroke="url(#orbit-swoosh)"
-        strokeWidth="3.6"
-        strokeLinecap="round"
-      />
+      {/* orbital swoosh */}
+      <path d="M30 13 C 66 3, 114 5, 144 17" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" />
+      <path d="M19 43 C 6 42, 3 32, 11 26" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" />
+      {/* wordmark */}
       <text
-        x="2"
-        y="35"
-        fontFamily="var(--font-arimo), Arial, sans-serif"
-        fontSize="34"
-        fontWeight="800"
-        letterSpacing="-1.5"
+        x="3"
+        y="36"
+        fontFamily="var(--font-fredoka), ui-rounded, system-ui, sans-serif"
+        fontSize="35"
+        fontWeight="600"
+        letterSpacing="-0.5"
         fill="currentColor"
       >
         Orbit
