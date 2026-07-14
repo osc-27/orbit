@@ -25,6 +25,8 @@ export interface MockLender {
   fundingSpeed: string;
   highlights: string[];
   applyUrl: string;
+  /** card-only display metadata (vertical === "card") */
+  card?: { rewards: string; introApr: string; annualFee: string };
 }
 
 export const LENDERS: MockLender[] = [
@@ -283,6 +285,7 @@ export const LENDERS: MockLender[] = [
     fundingSpeed: "Instant decision",
     highlights: ["Builds credit", "No security deposit", "Reports to all 3 bureaus"],
     applyUrl: "https://www.opploans.com/",
+    card: { rewards: "Builds credit", introApr: "N/A", annualFee: "$0" },
   },
   {
     id: "petal-card",
@@ -302,5 +305,66 @@ export const LENDERS: MockLender[] = [
     fundingSpeed: "Instant decision",
     highlights: ["No annual fee", "Cash back on select merchants"],
     applyUrl: "https://example.com/petal",
+    card: { rewards: "1.5% cash back", introApr: "N/A", annualFee: "$0" },
+  },
+  {
+    id: "aura-card",
+    name: "Aura Rewards Plus",
+    logoText: "AU",
+    brandColor: "#6B4EE6",
+    rating: 4.5,
+    source: "engine",
+    sourceTier: "network",
+    isFirstParty: false,
+    isSponsored: false,
+    vertical: "card",
+    serves: ["good", "excellent"],
+    aprByBand: { excellent: [17.24, 24.24], good: [18.24, 28.24] },
+    term: 0,
+    amount: [500, 15000],
+    fundingSpeed: "Instant decision",
+    highlights: ["No annual fee", "0% intro APR"],
+    applyUrl: "https://example.com/aura",
+    card: { rewards: "2% unlimited cash back", introApr: "0% for 12 mos", annualFee: "$0" },
+  },
+  {
+    id: "titanium-card",
+    name: "Titanium Travel",
+    logoText: "TT",
+    brandColor: "#1B2333",
+    rating: 4.3,
+    source: "engine",
+    sourceTier: "network",
+    isFirstParty: false,
+    isSponsored: true,
+    vertical: "card",
+    serves: ["excellent", "good"],
+    aprByBand: { excellent: [20.49, 27.49], good: [21.49, 29.49] },
+    term: 0,
+    amount: [1000, 25000],
+    fundingSpeed: "Instant decision",
+    highlights: ["Travel rewards", "No foreign transaction fees"],
+    applyUrl: "https://example.com/titanium",
+    card: { rewards: "50,000 bonus miles", introApr: "N/A", annualFee: "$95" },
+  },
+  {
+    id: "zen-student-card",
+    name: "Zen Student Card",
+    logoText: "ZS",
+    brandColor: "#2FA37C",
+    rating: 4.4,
+    source: "engine",
+    sourceTier: "network",
+    isFirstParty: false,
+    isSponsored: false,
+    vertical: "card",
+    serves: ["fair", "good"],
+    aprByBand: { good: [19.99, 27.99], fair: [24.99, 29.99] },
+    term: 0,
+    amount: [300, 3000],
+    fundingSpeed: "Instant decision",
+    highlights: ["Built for students", "0% intro APR"],
+    applyUrl: "https://example.com/zen",
+    card: { rewards: "3% dining rewards", introApr: "0% for 6 mos", annualFee: "$0" },
   },
 ];

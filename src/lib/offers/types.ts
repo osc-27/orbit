@@ -58,6 +58,15 @@ export interface NormalizedOffer {
   /** UI must label; the sort must never be described as "best" because of it. */
   isSponsored: boolean;
   isFirstParty: boolean;
+
+  /** Card-shaped fields, present only for the `card` vertical (cards aren't loans). */
+  card?: {
+    rewards: string;
+    introApr: string;
+    regularApr: string;
+    annualFee: string;
+    creditLine: string;
+  };
 }
 
 export interface OfferResult {

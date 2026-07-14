@@ -87,5 +87,14 @@ export function buildOffer(lender: MockLender, lead: Lead): NormalizedOffer | nu
     sourceTier: lender.sourceTier,
     isSponsored: lender.isSponsored,
     isFirstParty: lender.isFirstParty,
+    card: lender.card
+      ? {
+          rewards: lender.card.rewards,
+          introApr: lender.card.introApr,
+          regularApr: aprRange(apr[0], apr[1]),
+          annualFee: lender.card.annualFee,
+          creditLine: `${currency(lender.amount[0])}–${currency(lender.amount[1])}`,
+        }
+      : undefined,
   };
 }

@@ -1,6 +1,7 @@
 import type { OfferResult } from "@/lib/offers/types";
 import { FeaturedOffer } from "./FeaturedOffer";
 import { OfferRow } from "./OfferRow";
+import { CardFeatured, CardOfferRow } from "./CardOffer";
 import { RankingInfo } from "./RankingInfo";
 import { ShieldCheck, Info } from "lucide-react";
 
@@ -15,6 +16,8 @@ export function OffersView({
   showFeaturedEmptyNote?: boolean;
 }) {
   const { featured, market, meta } = result;
+  const isCard = meta.lead.vertical === "card";
+  const noun = isCard ? "card" : "offer";
 
   return (
     <div className="flex flex-col gap-8">
@@ -28,9 +31,9 @@ export function OffersView({
             <span className="text-xs text-muted">The company behind Orbit</span>
           </div>
           <div className="flex flex-col gap-4">
-            {featured.map((o) => (
-              <FeaturedOffer key={o.id} offer={o} />
-            ))}
+            {featured.map((o) =>
+              isCard ? <CardFeatured key={o.id} offer={o} /> : <FeaturedOffer key={o.id} offer={o} />,
+            )}
           </div>
         </section>
       ) : (
@@ -48,15 +51,15 @@ export function OffersView({
       <section aria-labelledby="market-heading">
         <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
           <h2 id="market-heading" className="text-lg font-bold text-ink">
-            {market.length} more {market.length === 1 ? "offer" : "offers"} from the market
+            {market.length} more {market.length === 1 ? noun : `${noun}s`} from the market
           </h2>
           <RankingInfo sortBasis={meta.sortBasis} />
         </div>
         {market.length > 0 ? (
           <div className="flex flex-col gap-3">
-            {market.map((o) => (
-              <OfferRow key={o.id} offer={o} />
-            ))}
+            {market.map((o) =>
+              isCard ? <CardOfferRow key={o.id} offer={o} /> : <OfferRow key={o.id} offer={o} />,
+            )}
           </div>
         ) : (
           <div className="card p-8 text-center">
