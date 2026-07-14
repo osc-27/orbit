@@ -133,6 +133,9 @@ export default function OffersPage() {
               <EmailCapture />
             </div>
           </aside>
+          <div className="lg:hidden">
+            <EmailCapture />
+          </div>
         </div>
       )}
     </div>

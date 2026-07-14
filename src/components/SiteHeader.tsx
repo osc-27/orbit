@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Logo } from "./ui/Logo";
+import { MobileMenu } from "./MobileMenu";
 import { VERTICALS } from "@/lib/content/verticals";
 
 export function SiteHeader() {
@@ -26,10 +27,11 @@ export function SiteHeader() {
             Learn
           </Link>
         </nav>
-        <div className="flex items-center gap-3">
-          <Link href="/prequalify" className="btn-primary text-sm">
+        <div className="flex items-center gap-2">
+          <Link href="/prequalify" className="btn-primary hidden text-sm md:inline-flex">
             Check my rate
           </Link>
+          <MobileMenu />
         </div>
       </div>
     </header>

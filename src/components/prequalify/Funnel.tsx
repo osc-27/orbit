@@ -25,11 +25,12 @@ const schema = z.object({
 
 type FormValues = z.infer<typeof schema>;
 
+// Ranges aligned to Engine by MoneyLion's bands (measured from Lantern).
 const BANDS: { value: CreditBand; label: string; range: string }[] = [
-  { value: "excellent", label: "Excellent", range: "720+" },
+  { value: "excellent", label: "Excellent", range: "720–850" },
   { value: "good", label: "Good", range: "660–719" },
-  { value: "fair", label: "Fair", range: "600–659" },
-  { value: "poor", label: "Building", range: "Below 600" },
+  { value: "fair", label: "Fair", range: "620–659" },
+  { value: "poor", label: "Building", range: "300–619" },
 ];
 
 const STEP_FIELDS: (keyof FormValues)[][] = [
