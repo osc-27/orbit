@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { Loader2, RotateCcw, SlidersHorizontal } from "lucide-react";
 import { OffersView } from "@/components/offers/OffersView";
+import { EmailCapture } from "@/components/marketing/EmailCapture";
 import { verticalBySlug } from "@/lib/content/verticals";
 import { currency } from "@/lib/format";
 import type { OfferResult, Lead } from "@/lib/offers/types";
@@ -117,16 +118,19 @@ export default function OffersPage() {
         <div className="grid gap-10 lg:grid-cols-[1fr_320px]">
           <OffersView result={result} showFeaturedEmptyNote />
           <aside className="hidden lg:block">
-            <div className="card sticky top-24 p-5">
-              <h2 className="text-sm font-bold uppercase tracking-wide text-brand-dark">How Orbit works</h2>
-              <ol className="mt-3 flex flex-col gap-3 text-sm text-muted">
-                <li><span className="font-semibold text-ink">1.</span> We fan your soft-pull lead to OppFi + the market.</li>
-                <li><span className="font-semibold text-ink">2.</span> OppFi products are featured; the market is sorted by APR.</li>
-                <li><span className="font-semibold text-ink">3.</span> You pick an offer and finish with that lender.</li>
-              </ol>
-              <p className="mt-4 border-t border-line pt-3 text-xs text-muted">
-                Not a lender. Featured OppFi placement is paid. Market sort is by APR, not payout.
-              </p>
+            <div className="sticky top-24 flex flex-col gap-4">
+              <div className="card p-5">
+                <h2 className="text-sm font-bold uppercase tracking-wide text-brand-dark">How Orbit works</h2>
+                <ol className="mt-3 flex flex-col gap-3 text-sm text-muted">
+                  <li><span className="font-semibold text-ink">1.</span> We fan your soft-pull lead to OppFi + the market.</li>
+                  <li><span className="font-semibold text-ink">2.</span> OppFi products are featured; the market is sorted by APR.</li>
+                  <li><span className="font-semibold text-ink">3.</span> You pick an offer and finish with that lender.</li>
+                </ol>
+                <p className="mt-4 border-t border-line pt-3 text-xs text-muted">
+                  Not a lender. Featured OppFi placement is paid. Market sort is by APR, not payout.
+                </p>
+              </div>
+              <EmailCapture />
             </div>
           </aside>
         </div>

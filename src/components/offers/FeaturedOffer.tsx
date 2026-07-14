@@ -26,12 +26,7 @@ export function FeaturedOffer({ offer }: { offer: NormalizedOffer }) {
               ))}
             </div>
           </div>
-          <a
-            href={offer.applyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-primary shrink-0"
-          >
+          <a href={offer.applyUrl} className="btn-accent shrink-0">
             Continue with OppFi
           </a>
         </div>

@@ -197,8 +197,10 @@ export function Funnel({ defaultGoalId, defaultVertical }: { defaultGoalId?: str
           {/* ── Step 3: details + consent ── */}
           {step === 2 && (
             <fieldset>
-              <legend className="text-xl font-bold text-ink">Where should we send your matches?</legend>
-              <p className="mt-1 text-sm text-muted">This is a preview — mock data only, nothing is submitted anywhere.</p>
+              <legend className="text-xl font-bold text-ink">Save your progress &amp; see your rates</legend>
+              <p className="mt-1 text-sm text-muted">
+                We&apos;ll send your personalized offers to this email. (Preview — mock data only.)
+              </p>
               <div className="mt-5 grid grid-cols-2 gap-4">
                 <Field label="First name" error={errors.firstName?.message}>
                   <input className="input" {...register("firstName")} autoComplete="given-name" />
@@ -218,12 +220,14 @@ export function Funnel({ defaultGoalId, defaultVertical }: { defaultGoalId?: str
               <label className="mt-5 flex cursor-pointer items-start gap-3 rounded-xl border border-line bg-cloud p-4">
                 <input type="checkbox" className="mt-0.5 h-4 w-4 accent-[var(--color-brand)]" {...register("consent")} />
                 <span className="text-xs leading-relaxed text-muted">
-                  I agree that Orbit and its partners may use a{" "}
-                  <span className="font-semibold text-ink">soft credit inquiry</span> to show my prequalified options,
-                  and I accept the <span className="font-semibold text-brand-dark">Terms</span>,{" "}
-                  <span className="font-semibold text-brand-dark">E-Consent</span>, and{" "}
-                  <span className="font-semibold text-brand-dark">Privacy Policy</span>. A soft inquiry does not affect
-                  my credit score.
+                  I have read and consent to the{" "}
+                  <span className="font-semibold text-brand-dark">E-Sign Consent</span>,{" "}
+                  <span className="font-semibold text-brand-dark">Privacy Policy</span>,{" "}
+                  <span className="font-semibold text-brand-dark">Terms of Use</span>, and{" "}
+                  <span className="font-semibold text-brand-dark">Arbitration Agreement</span>, and I authorize Orbit
+                  and its partners to use a <span className="font-semibold text-ink">soft credit inquiry</span> to
+                  pre-fill my application and show my prequalified options. A soft inquiry does not affect my credit
+                  score.
                 </span>
               </label>
               {errors.consent && <p className="mt-1 text-xs font-medium text-crit">{errors.consent.message}</p>}

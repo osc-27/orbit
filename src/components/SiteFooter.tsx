@@ -7,8 +7,8 @@ export function SiteFooter() {
     <footer className="mt-24 border-t border-line bg-paper">
       <div className="wrap grid gap-10 py-14 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
-          <div className="text-brand-darker text-lg">
-            <Logo />
+          <div className="text-brand">
+            <Logo height={28} />
           </div>
           <p className="mt-3 max-w-xs text-sm text-muted">
             Orbit is a financial-product marketplace by OppFi. We help you compare prequalified offers without

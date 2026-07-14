@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
+import { Arimo } from "next/font/google";
 import "./globals.css";
-import { SiteHeader } from "@/components/SiteHeader";
-import { SiteFooter } from "@/components/SiteFooter";
+import { AppFrame } from "@/components/AppFrame";
+import { CookieConsent } from "@/components/CookieConsent";
+
+const arimo = Arimo({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-arimo",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -15,11 +23,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={arimo.variable}>
       <body className="min-h-screen">
-        <SiteHeader />
-        <main>{children}</main>
-        <SiteFooter />
+        <AppFrame>{children}</AppFrame>
+        <CookieConsent />
       </body>
     </html>
   );

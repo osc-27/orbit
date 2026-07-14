@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { VERTICALS, GOALS } from "@/lib/content/verticals";
 import { VerticalIcon } from "@/components/ui/VerticalIcon";
+import { TrustWall } from "@/components/ui/TrustWall";
 
 export default function HomePage() {
   return (
@@ -112,6 +113,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── Trust wall ── */}
+      <div className="wrap">
+        <TrustWall heading="Our marketplace partners" />
+      </div>
 
       {/* ── Verticals ── */}
       <section className="wrap py-16">

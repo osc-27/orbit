@@ -78,7 +78,7 @@ export function buildOffer(lender: MockLender, lead: Lead): NormalizedOffer | nu
     // mints a signed prefill token and tracks the click). External offers link out
     // directly to the lender/aggregator.
     applyUrl: lender.isFirstParty
-      ? `/handoff/oppfi?offer=${encodeURIComponent(lender.id)}&amt=${amount}`
+      ? `/continue/oppfi?offer=${encodeURIComponent(lender.id)}&amt=${amount}`
       : lender.applyUrl,
     disclosures: buildDisclosures(lender, apr, amount),
     highlights: lender.highlights,
