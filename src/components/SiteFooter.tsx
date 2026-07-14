@@ -19,17 +19,20 @@ export function SiteFooter() {
         <FooterCol
           title="Company"
           links={[
+            { label: "How Orbit works", href: "/about" },
             { label: "Orbit Marketplace", href: "/orbit" },
-            { label: "How it works", href: "/#how" },
-            { label: "OppU Education", href: "https://www.opploans.com/oppu/" },
+            { label: "Lender reviews", href: "/lenders" },
+            { label: "Learn", href: "/learn" },
+            { label: "Help & FAQ", href: "/help" },
           ]}
         />
         <FooterCol
           title="Legal"
           links={[
-            { label: "Disclosures", href: "/#disclosures" },
-            { label: "Privacy", href: "/#privacy" },
-            { label: "Terms", href: "/#terms" },
+            { label: "Disclosures & Licensing", href: "/legal/disclosures" },
+            { label: "Privacy Policy", href: "/legal/privacy" },
+            { label: "Terms of Use", href: "/legal/terms" },
+            { label: "E-Sign Consent", href: "/legal/e-consent" },
           ]}
         />
       </div>

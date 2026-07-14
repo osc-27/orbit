@@ -20,7 +20,10 @@ export function SiteHeader() {
             </Link>
           ))}
           <Link href="/orbit" className="text-sm font-medium text-muted transition-colors hover:text-brand">
-            Orbit Marketplace
+            Marketplace
+          </Link>
+          <Link href="/learn" className="text-sm font-medium text-muted transition-colors hover:text-brand">
+            Learn
           </Link>
         </nav>
         <div className="flex items-center gap-3">
